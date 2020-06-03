@@ -1,0 +1,12 @@
+$header-font-size: 2rem;
+$header-font-weight: 700;
+
+h1 {
+  font-size: $header-font-size;
+  // font-weight: $header-font-weight;
+  font-weight: $header-font-weight;
+  margin: 1rem 0;
+}
+body {
+  margin: 1rem;
+}

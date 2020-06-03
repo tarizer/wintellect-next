@@ -1,0 +1,50 @@
+.Layout {
+  display: grid;
+  grid-template-rows: 100px 40px auto 30px;
+  grid-template-areas:
+    "header"
+    "menu"
+    "content"
+    "footer";
+
+  font-family: arial;
+
+  > header {
+    grid-area: header;
+    background-color: navy;
+    padding: 10px;
+
+    h1 {
+      color: white;
+    }
+
+    h2 {
+      color: white;
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+  }
+
+  > nav {
+    grid-area: menu;
+  }
+
+  > div#content {
+    grid-area: content;
+    padding: 10px;
+  }
+
+  > footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: navy;
+
+    small {
+      font-size: 0.8rem;
+      color: white;
+      text-align: center;
+    }
+  }
+}
