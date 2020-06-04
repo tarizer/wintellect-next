@@ -2,6 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 
 import Layout from '../src/components/Layout';
+import PlantLink from '../src/components/PlantLink';
+
+import { plants } from '../src/db.json';
 
 // import '../assets/scss/index.scss'; // imported in _app.js
 
@@ -15,6 +18,15 @@ const Home = () => {
         <p>
           <img src="/static/bumblebee.jpg" alt="bumblebee" width="300px" />
         </p>
+        <div>Plant Count: {plants.length}</div>
+        <ul>
+          {plants.map(plant => (
+            // <li key={plant.id}>{plant.name}</li>
+            <li key={plant.id}>
+              <PlantLink plantId={plant.id} />
+            </li>
+          ))}
+        </ul>
         <p>
           <Link href="/about">
             <a>Learn more about us</a>

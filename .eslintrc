@@ -1,5 +1,15 @@
 {
-  "extends": ["wesbos"]
+  "extends": ["wesbos"],
+  "rules": {
+    // Disable "" is missing in props validationeslintreact/prop-types
+    // "react/prop-types": [
+    //   "enabled",
+    //   { "ignore": "ignore", "customValidators": "customValidator" }
+    // ],
+    // Same as above
+    "react/prop-types": 0
+  }
+
   // "rules": {
   //   "quotes": [
   //     0,
