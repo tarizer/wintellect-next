@@ -4,9 +4,22 @@ import Link from 'next/link';
 import Layout from '../src/components/Layout';
 import PlantLink from '../src/components/PlantLink';
 
-import { plants } from '../src/db.json';
+// import { plants } from '../src/db.json';
 
 // import '../assets/scss/index.scss'; // imported in _app.js
+
+Home.getInitialProps = async () => {
+  let plants = [];
+
+  console.log('Fetching plants');
+  const res = await fetch('http://localhost:3050/plants');
+
+  if (res.status < 400) {
+    plants = await res.json();
+  }
+
+  return { plants };
+};
 
 const Home = () => {
   const pageHeader = 'A Next.js app';
