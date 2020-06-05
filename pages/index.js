@@ -9,20 +9,7 @@ import PlantLink from '../src/components/PlantLink';
 
 // import '../assets/scss/index.scss'; // imported in _app.js
 
-Home.getInitialProps = async () => {
-  let plants = [];
-
-  console.log('Fetching plants');
-  const res = await fetch('http://localhost:3050/plants');
-
-  if (res.status < 400) {
-    plants = await res.json();
-  }
-
-  return { plants };
-};
-
-const Home = () => {
+const Home = ({ plants }) => {
   const pageHeader = 'A Next.js app';
 
   return (
@@ -58,6 +45,23 @@ const Home = () => {
       </Layout>
     </>
   );
+};
+
+Home.getInitialProps = async () => {
+  let plants = [];
+
+  console.log('Fetching plants from home');
+  // If fetched from the server, it will show on the terminal (initial fetch)
+
+  try {
+    const res = await fetch('http://localhost:3050/plants');
+    if (res.status < 400) {
+      plants = await res.json();
+    }
+  } catch (err) {
+    console.log('Host unreachable', err);
+  }
+  return { plants };
 };
 
 export default Home;
