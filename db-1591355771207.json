@@ -1,0 +1,28 @@
+{
+  "plants": [
+    {
+      "id": 1,
+      "name": "Tree",
+      "fileName": "tree.jpg",
+      "description": "This is a tree!"
+    },
+    {
+      "id": 2,
+      "name": "Flowers",
+      "fileName": "flowers.jpg",
+      "description": "These are flowers!"
+    },
+    {
+      "id": 3,
+      "name": "Shrub",
+      "fileName": "shrub.jpg",
+      "description": "This is a shrub!"
+    },
+    {
+      "id": 4,
+      "name": "Grass",
+      "fileName": "grass.jpg",
+      "description": "This is grass!"
+    }
+  ]
+}
