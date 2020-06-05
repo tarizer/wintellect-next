@@ -3,8 +3,8 @@ import Error from 'next/error';
 
 import { useRouter } from 'next/router';
 
-import { plants } from '../src/db.json';
-import Layout from '../src/components/Layout';
+import { plants } from '../../src/db.json';
+import Layout from '../../src/components/Layout';
 
 const Plant = () => {
   // https://nextjs.org/docs/routing/dynamic-routes#caveats
@@ -29,26 +29,27 @@ const Plant = () => {
 
   // const plantId = parseInt(router.query.plantId);
   const plantId = Number(router.query.plantId);
-  console.log(plantId);
+  // console.log(plantId);
+  console.log(router.query.plantId);
 
   if (!Number.isInteger(plantId) || plantId < 1) {
     // if (Number.isNaN(plantId) || plantId < 1) {
     return <Error statusCode={404} />;
   }
 
-  const selectedPlant = plants.find(plant => plant.id === plantId);
-  if (selectedPlant === undefined) {
+  const plant = plants.find(plantObject => plantObject.id === plantId);
+  if (plant === undefined) {
     return <Error statusCode={404} />;
   }
 
   return (
-    <Layout pageHeader={`Plant: ${selectedPlant.name}`}>
+    <Layout pageHeader={`Plant: ${plant.name}`}>
       <p>
         <img
-          src={`/static/${encodeURIComponent(selectedPlant.fileName)}`}
-          alt="selectedPlant.name"
+          src={`/static/${encodeURIComponent(plant.fileName)}`}
+          alt="plant.name"
         />
-        {selectedPlant.description}
+        {plant.description}
       </p>
       <style jsx>
         {`
