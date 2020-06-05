@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
 
 import Layout from '../src/components/Layout';
 import PlantLink from '../src/components/PlantLink';
